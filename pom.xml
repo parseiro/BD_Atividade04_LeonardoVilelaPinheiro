@@ -22,18 +22,18 @@
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 
-		<!-- Hibernate Core -->
+<!--		&lt;!&ndash; Hibernate Core &ndash;&gt;
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
 			<version>5.4.10.Final</version>
 		</dependency>
-		<!-- Hibernate JPA -->
+		&lt;!&ndash; Hibernate JPA &ndash;&gt;
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>5.4.10.Final</version>
-		</dependency>
+		</dependency>-->
 		<!-- BoneCP -->
 		<dependency>
 			<groupId>com.jolbox</groupId>
@@ -62,6 +62,14 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/javax.validation/validation-api -->
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+<!--			<version>2.0.1.Final</version>-->
+		</dependency>
+
 	</dependencies>
 
 	<build>
