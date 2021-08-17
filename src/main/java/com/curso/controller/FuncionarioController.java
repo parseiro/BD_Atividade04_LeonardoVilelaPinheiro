@@ -3,6 +3,7 @@ package com.curso.controller;
 import com.curso.entity.Funcionario;
 import com.curso.repository.DepartamentoRepository;
 import com.curso.repository.FuncionarioRepository;
+import com.curso.service.DeptService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,6 +30,9 @@ public class FuncionarioController {
 
     @Autowired
     DepartamentoRepository deptRepository;
+
+    @Autowired
+    DeptService deptService;
 
     @GetMapping("")
     public Iterable<Funcionario> listarDeptos() {
@@ -126,5 +130,11 @@ public class FuncionarioController {
         var dept = deptRepository.findByName(deptName).get();
         var result = employeeRepository.deleteFuncByDept(dept);
         return result > 0 ? true : false;
+    }
+
+    // Atividade 8.1
+    @GetMapping("/transacional")
+    public void transacional() {
+        deptService.newEmployeeAndDept();
     }
 }
