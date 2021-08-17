@@ -53,6 +53,4 @@ public class BdAtividade07LeonardoVilelaPinheiroApplication {
             deptRepository.save(Departamento.builder().id(6L).name("Compras").build());
         };
     }
-
-
 }
