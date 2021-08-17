@@ -1,12 +1,14 @@
 package com.curso.controller;
 
 import com.curso.entity.Departamento;
+import com.curso.entity.Funcionario;
 import com.curso.repository.DepartamentoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collection;
 import java.util.Optional;
 
 @Controller
@@ -26,6 +28,14 @@ public class DeptoController {
     public Optional<Departamento> pegarDepto(@PathVariable Long id) {
         return repository.findById(id);
     }
+
+    //Listar o primeiro departamento cadastrado.
+    @GetMapping("/findFirst")
+    public Optional<Departamento> findFirst() {
+        return repository.findFirstByOrderByIdAsc();
+    }
+
+
 
 
 }

@@ -1,0 +1,13 @@
+funcionarios:
+  - id: 1
+    nome: "John Travolta"
+    dependentes: 3
+    cargo: "vendedor"
+    salario: 1000.00
+    departamento_id: 1
+  - id: 2
+    nome: "Dunas Entranhas"
+    dependentes: 0
+    cargo: "Vendedor"
+    salario: 1000.00
+    departamento_id: 1

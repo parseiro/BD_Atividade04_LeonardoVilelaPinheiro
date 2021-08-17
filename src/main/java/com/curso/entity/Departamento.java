@@ -1,36 +1,45 @@
 package com.curso.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.hibernate.Hibernate;
-import org.springframework.data.jpa.domain.AbstractPersistable;
+import lombok.*;
+import org.springframework.data.domain.Persistable;
+import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.Objects;
-import java.util.Set;
 
 @Table(name = "DEPARTAMENTOS")
 @Entity
-public class Departamento extends AbstractPersistable<Long> {
+@Builder
+@NoArgsConstructor
+@RequiredArgsConstructor
+@AllArgsConstructor
+public class Departamento implements Persistable<Long> {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Nullable
+    Long id;
+
     @Column(name = "name", nullable = false)
-    private String nome;
+    @NonNull
+    @Getter
+    @Setter
+    private String name;
 
     @OrderBy("nome ASC")
     @OneToMany(mappedBy = "departamento")
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @Getter
     private List<Funcionario> funcionarios;
 
-    public List<Funcionario> getFuncionarios() {
-        return funcionarios;
+    @Override
+    public Long getId() {
+        return id;
     }
 
-    public String getNome() {
-        return nome;
+    @Override
+    public boolean isNew() {
+        return null == getId();
     }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-
 }

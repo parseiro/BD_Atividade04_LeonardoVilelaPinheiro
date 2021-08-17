@@ -19,12 +19,11 @@ import java.util.Properties;
 @EnableJpaRepositories("com.curso.repository")
 @EnableTransactionManagement
 public class SpringDataConf {
-    @Bean
+    // definido no application.yaml
+/*    @Bean
     public DataSource dataSource() {
         BoneCPDataSource ds = new BoneCPDataSource();
 
-//        ds.setUser("root");
-//        ds.setPassword("root");
         ds.setUser("leopinheiro");
         ds.setPassword("T72Fyub&r4jilKEW");
 
@@ -63,6 +62,6 @@ public class SpringDataConf {
         manager.setJpaDialect(new HibernateJpaDialect());
 
         return manager;
-    }
+    }*/
 
 }
