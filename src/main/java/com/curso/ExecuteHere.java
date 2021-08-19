@@ -14,10 +14,10 @@ import java.math.BigDecimal;
 
 @SpringBootApplication
 @Slf4j
-public class BdAtividade07LeonardoVilelaPinheiroApplication {
+public class ExecuteHere {
 
     public static void main(String[] args) {
-        SpringApplication.run(BdAtividade07LeonardoVilelaPinheiroApplication.class, args);
+        SpringApplication.run(ExecuteHere.class, args);
     }
 
     @Bean
