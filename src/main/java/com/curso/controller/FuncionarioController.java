@@ -1,5 +1,6 @@
 package com.curso.controller;
 
+import com.curso.entity.Departamento;
 import com.curso.entity.Funcionario;
 import com.curso.repository.DepartamentoRepository;
 import com.curso.repository.FuncionarioRepository;
@@ -121,7 +122,7 @@ public class FuncionarioController {
         var oldDept = deptRepository.findByName(oldDeptName).get();
         var newDept = deptRepository.findByName(newDeptName).get();
         var result = employeeRepository.changeTheirDept(oldDept.getId(), newDept.getId());
-        return result > 0 ? true : false;
+        return result > 0;
     }
 
     // Atividade 7.4
@@ -129,12 +130,22 @@ public class FuncionarioController {
     public boolean deleteAllInDept(@PathVariable String deptName) {
         var dept = deptRepository.findByName(deptName).get();
         var result = employeeRepository.deleteFuncByDept(dept);
-        return result > 0 ? true : false;
+        return result > 0;
     }
 
     // Atividade 8.1
     @GetMapping("/transacional")
     public void transacional() {
-        deptService.newEmployeeAndDept();
+        Departamento departamento = Departamento.builder()
+                .name("Departamento Secreto")
+                .build();
+        Funcionario funcionario = Funcionario.builder()
+                .nome("Clark Kent")
+                .departamento(departamento)
+                .cargo("Super herói")
+                .dependentes(1)
+                .salario(BigDecimal.valueOf(0)) // trabalha de graça para o bem da humanidade
+                .build();
+        deptService.newEmployeeAndDept(departamento, funcionario);
     }
 }

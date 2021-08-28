@@ -14,8 +14,11 @@ import java.util.List;
 @NoArgsConstructor
 @RequiredArgsConstructor
 @AllArgsConstructor
-public class Departamento implements Persistable<Long> {
+public class Departamento {
 
+    @Setter
+    @Getter
+    @Column
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Nullable
@@ -32,14 +35,4 @@ public class Departamento implements Persistable<Long> {
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @Getter
     private List<Funcionario> funcionarios;
-
-    @Override
-    public Long getId() {
-        return id;
-    }
-
-    @Override
-    public boolean isNew() {
-        return null == getId();
-    }
 }

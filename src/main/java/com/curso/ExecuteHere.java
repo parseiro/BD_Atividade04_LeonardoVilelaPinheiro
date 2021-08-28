@@ -4,6 +4,7 @@ import com.curso.entity.Departamento;
 import com.curso.entity.Funcionario;
 import com.curso.repository.DepartamentoRepository;
 import com.curso.repository.FuncionarioRepository;
+import com.curso.service.DeptService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -29,6 +30,7 @@ public class ExecuteHere {
 
 
             { // RH
+                log.info("Criando o RH");
                 var RH = deptRepository.save(Departamento.builder().name("RH").build());
 
                 funcRepository.save(Funcionario.builder().nome("Maicon José").departamento(RH).cargo("Recrutador").dependentes(3).salario(BigDecimal.valueOf(1000)).build());
@@ -39,6 +41,7 @@ public class ExecuteHere {
             }
 
             {
+                log.info("Criando o Jurídico");
                 var jurídico = deptRepository.save(Departamento.builder().name("Jurídico").build());
 
                 funcRepository.save(Funcionario.builder().nome("Pereirão").departamento(jurídico).cargo("Advogado").dependentes(0).salario(BigDecimal.valueOf(2500.50)).build());

@@ -3,6 +3,7 @@ package com.curso.demo;
 import com.jolbox.bonecp.BoneCPDataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
@@ -18,9 +19,9 @@ import java.util.Properties;
 @Configuration
 @EnableJpaRepositories("com.curso.repository")
 @EnableTransactionManagement
+@Profile("dev")
 public class SpringDataConf {
-    // definido no application.yaml
-/*    @Bean
+    @Bean
     public DataSource dataSource() {
         BoneCPDataSource ds = new BoneCPDataSource();
 
@@ -28,7 +29,7 @@ public class SpringDataConf {
         ds.setPassword("T72Fyub&r4jilKEW");
 
         ds.setJdbcUrl("jdbc:mysql://localhost/curso-spring-db");
-        ds.setDriverClass("com.mysql.jdbc.Driver");
+        ds.setDriverClass("com.mysql.cj.jdbc.Driver");
         return ds;
     }
 
@@ -45,8 +46,9 @@ public class SpringDataConf {
         factory.setPackagesToScan("com.curso.entity");
 
         var jpaProperties = new Properties();
-        jpaProperties.put("hibernate.hbm2ddl.auto", "update");
-//        jpaProperties.put("spring.jpa.show-sql", "true");
+//        jpaProperties.put("hibernate.hbm2ddl.auto", "update");
+//        jpaProperties.put("hibernate.hbm2ddl.auto", "validate");
+        jpaProperties.put("hibernate.hbm2ddl.auto", "create");
         factory.setJpaProperties(jpaProperties);
 
         factory.afterPropertiesSet();
@@ -62,6 +64,6 @@ public class SpringDataConf {
         manager.setJpaDialect(new HibernateJpaDialect());
 
         return manager;
-    }*/
+    }
 
 }

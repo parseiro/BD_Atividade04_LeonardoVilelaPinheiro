@@ -23,19 +23,11 @@ public class DeptService {
     // associar esse departamento a um funcionário e salvar esse funcionário em um mesmo
     // controle de transação.
     @Transactional
-    public void newEmployeeAndDept() {
-        var novoDepto = deptRepository.save(
-                Departamento.builder()
-                        .name("Novo Departamento Secreto")
-                        .build());
+    public void newEmployeeAndDept(Departamento departamento, Funcionario funcionario) {
 
-        funcionarioRepository.save(Funcionario.builder()
-                .nome("Clark Kent")
-                .departamento(novoDepto)
-                .cargo("Super herói")
-                .dependentes(1)
-                .salario(BigDecimal.valueOf(0)) // trabalha de graça para o bem da humanidade
-                .build());
+        var novoDepto = deptRepository.save(departamento);
+
+        funcionarioRepository.save(funcionario);
 
         // simular uma exceção para fazer ROLLBACK
 //        throw new IllegalArgumentException();

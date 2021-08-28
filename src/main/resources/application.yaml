@@ -30,22 +30,22 @@ spring:
   config:
     activate:
       on-profile: dev
-  datasource:
-    url: jdbc:mysql://localhost/curso-spring-db
-    username: leopinheiro
-    password: T72Fyub&r4jilKEW
+#  datasource:
+#    url: jdbc:mysql://localhost/curso-spring-db
+#    username: leopinheiro
+#    password: T72Fyub&r4jilKEW
   devtools:
     add-properties: true
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
-    properties:
-      hibernate:
-        jdbc:
-          lob:
-            non_contextual_creation: true
-        format_sql: true
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    show-sql: true
+#    properties:
+#      hibernate:
+#        jdbc:
+#          lob:
+#            non_contextual_creation: true
+#        format_sql: true
 
 #  jwt.secret: MYJWTSECRET
 #  jwt.expiration: 3600000
