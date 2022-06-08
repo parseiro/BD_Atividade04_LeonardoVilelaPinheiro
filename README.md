@@ -1,6 +1,6 @@
-Este é um projeto que trabalha com Spring Data JPA (usando MariaDB).
+This is an academic project. The aim is to study Spring Data JPA (using MariaDB).
 
-Trabalha conceitos como:
+It works on the following concepts:
 - Repository
 - @Transactional
 - Lombok annotations
